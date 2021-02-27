@@ -1,9 +1,13 @@
 import './App.css';
-import Store from "./store/Store";
+import ItemsStore from "./store/ItemsStore";
 import ShopComponent from "./components/ShopComponent";
+import ShopsStore from "./store/ShopsStore";
+import ShopListComponent from "./components/ShopsListComponent";
 
 function App() {
-  const store = new Store();
+  const itemsStore = new ItemsStore();
+  const shopsStore = new ShopsStore();
+
   const addNewItemToShop = () => {
       const itemName = prompt('Set item name');
       const itemDescription = prompt('Set item description');
@@ -11,14 +15,18 @@ function App() {
       const confirmDetails = confirm(`Name: "${itemName}". Description: "${itemDescription}".\nCreate new item?`);
 
       if (confirmDetails) {
-          store.addNewItem({name: itemName, description: itemDescription});
+          itemsStore.addNewItem({name: itemName, description: itemDescription});
       }
   }
 
   return (
     <div className="App">
-      <ShopComponent store={store} />
+      <ShopComponent store={itemsStore} />
       <button onClick={addNewItemToShop}>Add new item to shop</button>
+
+      <hr/>
+
+      <ShopListComponent store={shopsStore}/>
     </div>
   );
 }

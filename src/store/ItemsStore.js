@@ -1,6 +1,6 @@
 import {autorun, makeObservable, runInAction, observable, action, computed} from "mobx";
 
-class Store {
+class ItemsStore {
     index = 1;
     items = [];
 
@@ -50,4 +50,4 @@ class Store {
     }
 }
 
-export default Store;
+export default ItemsStore;
