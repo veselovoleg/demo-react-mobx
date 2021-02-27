@@ -25,7 +25,8 @@ class ShopsStore {
                 runInAction(() => {
                     this.shops.push(item);
                 })
-            }));
+            }))
+            .catch(error => console.error(error));
     }
 }
 
